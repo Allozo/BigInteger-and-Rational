@@ -211,11 +211,101 @@ void test4() {
     if ((s/t).asDecimal(10) != "5337140829307966068.3989202202") std::cout << "Error 7" << std::endl;
 }
 
+void test_biginteger() {
+    long long g = 1000000000;
+    srand(time(nullptr));
+    string s = "0";
+    BigInteger bi(s);
+    bi -= 990;
+    cout << bi << endl;
+
+
+    for (int i = 0; i < 100; i++) {
+        long long b = rand() % g - 500000000;
+        long long a = rand() % g - 500000000;
+//        cin >> a;
+//        cin >> b;
+
+        BigInteger int_a = a;
+        BigInteger int_b = b;
+
+//        cout << a << " " << b;
+        BigInteger int_a_plus_b = int_a + int_b;
+        BigInteger int_a_minus_b = int_a - int_b;
+        BigInteger int_a_mul_b = int_a * int_b;
+        BigInteger int_a_del_b = int_a / int_b;
+        BigInteger int_a_mod_b = int_a % int_b;
+
+        if (!(int_a_plus_b == a + b)) {
+            cout << "--------------------------------------" << endl;
+            cout << "operation -> + " << endl;
+            cout << "a == " << a << " int_a = ";
+            cout << int_a << endl;
+            cout << "b == " << b << " int_b = ";
+            cout << int_b << endl;
+            cout << "a + b         == " << a + b << endl;
+            cout << "int_a + int_b == ";
+            cout << int_a_plus_b << endl;
+            cout << "--------------------------------------" << endl;
+        }
+        if (!(int_a_minus_b == a - b)) {
+            cout << "--------------------------------------" << endl;
+            cout << "operation-> - " << endl;
+            cout << "a == " << a << " int_a = ";
+            cout << int_a << endl;
+            cout << "b == " << b << " int_b = ";
+            cout << int_b << endl;
+            cout << "a - b         == " << a - b << endl;
+            cout << "int_a - int_b == ";
+            cout << int_a_minus_b << endl;
+            cout << "--------------------------------------" << endl;
+        }
+        if (!(int_a_mul_b == a * b)) {
+            cout << "--------------------------------------" << endl;
+            cout << "operation-> * " << endl;
+            cout << "a == " << a << " int_a = ";
+            cout << int_a << endl;
+            cout << "b == " << b << " int_b = ";
+            cout << int_b << endl;
+            cout << "a * b         == " << a * b << endl;
+            cout << "int_a * int_b == ";
+            cout << int_a_mul_b << endl;
+            cout << "--------------------------------------" << endl;
+        }
+        if (!(int_a_del_b == a / b)) {
+            cout << "--------------------------------------" << endl;
+            cout << "operation-> / " << endl;
+            cout << "a == " << a << " int_a = ";
+            cout << int_a << endl;
+            cout << "b == " << b << " int_b = ";
+            cout << int_b << endl;
+            cout << "a / b         == " << a / b << endl;
+            cout << "int_a / int_b == ";
+            cout << int_a_del_b << endl;
+            cout << "--------------------------------------" << endl;
+        }
+        if (!(int_a_mod_b == a % b)) {
+            cout << "--------------------------------------" << endl;
+            cout << "operation-> % " << endl;
+            cout << "a == " << a << " int_a = ";
+            cout << int_a << endl;
+            cout << "b == " << b << " int_b = ";
+            cout << int_b << endl;
+            cout << "a % b         == " << a % b << endl;
+            cout << "int_a % int_b == ";
+            cout << int_a_mod_b << endl;
+            cout << "--------------------------------------" << endl;
+        }
+
+    }
+}
+
 int main() {
 //    test();
 //    test_1();
     test_2();
 //    stress_test();
 //    test4();
+//    test_biginteger();
     return 0;
 }
